@@ -7,7 +7,6 @@ token = 'JvEHhyqQqVpFAqcmAHjcuhjNfFNjyvKV'
 total_records = 38862
 offset = 1
 req_limit = 1000
-offsetURL = URL + f"?offset=" + str(offset) + "&" + f"limit=" + str(req_limit)
 offset_count = 0
 
 
@@ -15,6 +14,7 @@ offset_count = 0
 # temp_data = json.dumps(response)
 
 while offset < total_records:
+    offsetURL = URL + f"?offset=" + str(offset) + "&" + f"limit=" + str(req_limit)
     response = requests.get(offsetURL, headers={'Token': token})
     temp_data = response.json()
     output_filename = f"locations_{offset_count}.json"
